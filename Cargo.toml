@@ -2,7 +2,7 @@
 name = "litegraft"
 version = "0.1.0"
 edition = "2021"
-authors = ["JaydenCJ"]
+authors = ["JaydenCJ <aisingioro.kiyon@gmail.com>"]
 rust-version = "1.75"
 description = "Instant branch, snapshot and diff for SQLite database files: page-level, content-addressed, offline, no server, no SQL layer."
 license = "MIT"
