@@ -1,0 +1,28 @@
+# --- build outputs ---
+target/
+build/
+dist/
+out/
+
+# --- dependencies (not used by Rust, kept for baseline compliance) ---
+node_modules/
+.venv/
+venv/
+__pycache__/
+
+# --- litegraft's own stores next to scratch databases ---
+*.litegraft/
+
+# --- env & secrets ---
+.env
+.env.*
+!.env.example
+
+# --- caches / editor / OS ---
+.DS_Store
+.idea/
+.vscode/
+.cache/
+coverage/
+*.log
+tmp/

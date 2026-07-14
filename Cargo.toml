@@ -1,0 +1,19 @@
+[package]
+name = "litegraft"
+version = "0.1.0"
+edition = "2021"
+authors = ["JaydenCJ"]
+rust-version = "1.75"
+description = "Instant branch, snapshot and diff for SQLite database files: page-level, content-addressed, offline, no server, no SQL layer."
+license = "MIT"
+repository = "https://github.com/JaydenCJ/litegraft"
+keywords = ["sqlite", "snapshot", "branching", "diff", "content-addressed"]
+categories = ["command-line-utilities", "development-tools"]
+
+[dependencies]
+# None. litegraft is std-only by design: it reads the SQLite file format
+# directly, so it needs no SQLite driver, no hash crate, no serde.
+
+[profile.release]
+strip = true
+lto = true

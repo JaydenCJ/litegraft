@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1060" height="600" viewBox="0 0 1060 600" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15">
+  <!-- Terminal rendering of a real litegraft session (output copied verbatim
+       from a container run on 2026-07-13; ids and timings are from that run). -->
+  <rect width="1060" height="600" rx="10" fill="#1c2128"/>
+  <rect width="1060" height="34" rx="10" fill="#2d333b"/>
+  <rect y="24" width="1060" height="10" fill="#2d333b"/>
+  <circle cx="20" cy="17" r="6" fill="#f47067"/>
+  <circle cx="40" cy="17" r="6" fill="#e0b543"/>
+  <circle cx="60" cy="17" r="6" fill="#57ab5a"/>
+  <text x="530" y="22" text-anchor="middle" fill="#909dab">litegraft — branch your SQLite fixtures like code</text>
+
+  <g fill="#adbac7">
+    <text x="24" y="64"><tspan fill="#6cb6ff">$</tspan> litegraft snap fixtures.db -m "baseline fixture"</text>
+    <text x="24" y="88">snap <tspan fill="#96d0ff">3b83d414bc5b</tspan> (branch main)</text>
+    <text x="24" y="112" fill="#768390">  pages: 22 total, 22 new, 0 deduped (88.0 KiB written) in 2.9 ms</text>
+
+    <text x="24" y="156"><tspan fill="#6cb6ff">$</tspan> litegraft checkout fixtures.db try-migration   <tspan fill="#768390"># then run the migration</tspan></text>
+    <text x="24" y="180"><tspan fill="#6cb6ff">$</tspan> litegraft snap fixtures.db -m "migration: plan column backfill"</text>
+    <text x="24" y="204">snap <tspan fill="#96d0ff">0296edbca9ca</tspan> (branch try-migration)</text>
+    <text x="24" y="228" fill="#57ab5a">  pages: 22 total, 7 new, 15 deduped (28.0 KiB written) in 3.5 ms</text>
+
+    <text x="24" y="272"><tspan fill="#6cb6ff">$</tspan> litegraft diff fixtures.db main try-migration</text>
+    <text x="24" y="296" fill="#909dab">diff 3b83d414bc5b -&gt; 0296edbca9ca</text>
+    <text x="24" y="320"><tspan fill="#e0b543">  sqlite_schema  1 changed</tspan></text>
+    <text x="24" y="344"><tspan fill="#e0b543">  users          6 changed</tspan></text>
+    <text x="24" y="368" fill="#909dab">7 changed, 0 added, 0 removed (22 -&gt; 22 pages x 4096 bytes)</text>
+
+    <text x="24" y="412"><tspan fill="#6cb6ff">$</tspan> litegraft checkout fixtures.db main            <tspan fill="#768390"># byte-identical restore</tspan></text>
+    <text x="24" y="436">checked out branch main at <tspan fill="#96d0ff">3b83d414bc5b</tspan> (22 pages restored)</text>
+
+    <text x="24" y="480"><tspan fill="#6cb6ff">$</tspan> litegraft branch fixtures.db</text>
+    <text x="24" y="504"><tspan fill="#57ab5a">* main                     3b83d414bc5b</tspan></text>
+    <text x="24" y="528">  try-migration            0296edbca9ca</text>
+
+    <text x="24" y="566" fill="#768390"># no server, no SQL layer — just pages, hashed and deduplicated</text>
+  </g>
+</svg>
